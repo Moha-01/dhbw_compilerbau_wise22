@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c96016b-bcba-49a7-8f50-8bbcf37953c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/dhbw/mosbach/compilerbau/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/DFACreator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/DepthFirstIterator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/Parser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/SyntaxTreeEvaluator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/ast/BinOpNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/ast/OperandNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/ast/SyntaxNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/ast/UnaryOpNode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/dfa/DFAState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/visit/FollowposTableEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/visit/Visitable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/visit/Visitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/dhbw/mosbach/compilerbau/test/DfaCreatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/dhbw/mosbach/compilerbau/test/FollowPosTableGeneratorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/dhbw/mosbach/compilerbau/test/ParserTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/dhbw/mosbach/compilerbau/test/SyntaxTreeEvaluatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/dhbw/mosbach/compilerbau/util/CompareUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.buildship.core.prefs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
