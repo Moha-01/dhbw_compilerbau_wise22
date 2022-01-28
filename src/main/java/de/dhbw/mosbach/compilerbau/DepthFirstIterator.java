@@ -19,11 +19,11 @@ public class DepthFirstIterator{
     {
       UnaryOpNode opNode = (UnaryOpNode) root;
 
-      DepthFirstIterator.traverse(opNode.subNode visitor);
+      DepthFirstIterator.traverse(opNode.subNode, visitor);
       opNode.accept(visitor);
       return;
     }
 
-    throw new RunTimeException("Instance root has a bad type!");
+    throw new RuntimeException("Instance root has a bad type!");
   }
 }

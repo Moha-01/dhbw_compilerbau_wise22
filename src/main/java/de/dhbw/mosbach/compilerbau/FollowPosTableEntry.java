@@ -1,3 +1,7 @@
+package de.dhbw.mosbach.compilerbau;
+import java.util.HashSet;
+import java.util.Set;
+
 class FollowPosTableEntry{
 
   public final int position;
@@ -19,7 +23,7 @@ class FollowPosTableEntry{
     }
 
     FollowPosTableEntry other = (FollowPosTableEntry) obj;
-    return this.position = other.position &&
+    return this.position == other.position &&
            this.symbol.equals(other.symbol) &&
            this.followpos.equals(other.followpos);
   }
@@ -28,7 +32,7 @@ class FollowPosTableEntry{
   public int hashCode(){
     int hashCode = this.position;
     hashCode = 31 * hashCode + this.symbol.hashCode();
-    hasCode = 31 * hashCode + this.followpos.hashCode();
+    hashCode = 31 * hashCode + this.followpos.hashCode();
 
     return hashCode;  
   }

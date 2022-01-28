@@ -1,3 +1,5 @@
+package de.dhbw.mosbach.compilerbau;
+
 public class FollowPosTableGenerator implements Visitor{
 
   public void visit(OperandNode node){

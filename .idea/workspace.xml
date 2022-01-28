@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81875b45-06d4-47c9-899c-21b79c5571fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/SyntaxNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/DepthFirstIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/DepthFirstIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/Visitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/Visitable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/Visitable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +45,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="de.dhbw.mosbach.compilerbau" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.dhbw.mosbach.compilerbau.main" />
@@ -54,17 +60,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,6 +80,7 @@
       <updated>1643215173635</updated>
       <workItem from="1643377080532" duration="362000" />
       <workItem from="1643377449376" duration="1113000" />
+      <workItem from="1643397131338" duration="927000" />
     </task>
     <servers />
   </component>
