@@ -1,3 +1,5 @@
+package de.dhbw.mosbach.compilerbau;
+
 interface Visitor{
 
   public void visit(OperandNode node);

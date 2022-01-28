@@ -1,3 +1,5 @@
+package de.dhbw.mosbach.compilerbau;
+
 public class DepthFirstIterator{
 
   public static void traverse(Visitable root, Visitor visitor){
