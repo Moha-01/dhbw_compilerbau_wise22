@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81875b45-06d4-47c9-899c-21b79c5571fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/BinOpNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/OperandNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/UnaryOpNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/SyntaxNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/SyntaxNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,15 +61,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -95,6 +89,7 @@
       <workItem from="1643377080532" duration="362000" />
       <workItem from="1643377449376" duration="1113000" />
       <workItem from="1643397131338" duration="10040000" />
+      <workItem from="1643561794140" duration="6688000" />
     </task>
     <servers />
   </component>
