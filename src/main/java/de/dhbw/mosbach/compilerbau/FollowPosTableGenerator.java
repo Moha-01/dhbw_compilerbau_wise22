@@ -1,6 +1,11 @@
+/*
+*
+* */
+
 package de.dhbw.mosbach.compilerbau;
 
 public class FollowPosTableGenerator implements Visitor{
+
 
   public void visit(OperandNode node){
     //...
@@ -10,7 +15,7 @@ public class FollowPosTableGenerator implements Visitor{
     //...
   }
 
-  public void visit(UnaryOpNode node){
+  public void visit(UnaryOpNode node){    //star-node
     //...
   }
 

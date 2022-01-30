@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81875b45-06d4-47c9-899c-21b79c5571fa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/BinOpNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/OperandNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/UnaryOpNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/DepthFirstIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/DepthFirstIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/FollowPosTableGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/Visitable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/Visitable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/SyntaxNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/dhbw/mosbach/compilerbau/SyntaxNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +65,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.main" />
@@ -80,7 +94,7 @@
       <updated>1643215173635</updated>
       <workItem from="1643377080532" duration="362000" />
       <workItem from="1643377449376" duration="1113000" />
-      <workItem from="1643397131338" duration="927000" />
+      <workItem from="1643397131338" duration="10040000" />
     </task>
     <servers />
   </component>
