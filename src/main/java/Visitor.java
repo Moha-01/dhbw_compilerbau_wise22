@@ -1,4 +1,4 @@
-package de.dhbw.mosbach.compilerbau;
+
 
 interface Visitor{
 

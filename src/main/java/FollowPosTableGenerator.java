@@ -4,7 +4,6 @@
   Edited From: Lukas, 30.01.2022
 */
 
-package de.dhbw.mosbach.compilerbau;
 
 import java.util.SortedMap;
 import java.util.TreeMap;

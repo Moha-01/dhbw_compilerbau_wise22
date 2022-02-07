@@ -1,4 +1,4 @@
-package de.dhbw.mosbach.compilerbau;
+
 
 public class UnaryOpNode extends SyntaxNode implements Visitable {
     public String operator;

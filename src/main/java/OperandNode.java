@@ -1,4 +1,4 @@
-package de.dhbw.mosbach.compilerbau;
+
 
 public class OperandNode extends SyntaxNode implements Visitable {
     public int position;
