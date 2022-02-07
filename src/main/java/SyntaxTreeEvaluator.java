@@ -1,89 +1,66 @@
 public class SyntaxTreeEvaluator implements Visitor {
-
     private int counter;
-    public SyntaxTreeEvaluator(){
+    public SyntaxTreeEvaluator() {
         this.counter = 1;
     }
-
-    public void start(Visitable root){
-        DepthFirstIterator.traverse(root,this);
+    public void start(Visitable root) {
+        DepthFirstIterator.traverse(root, this);
     }
 
     @Override
-    public void visit (OperandNode node) {
-
+    public void visit(OperandNode node) {
         node.position = counter++;
-
-        if(node.symbol!=null){
+        if (node.symbol != null) {
             node.nullable = false;
             node.firstpos.add(node.position);
             node.lastpos.add(node.position);
-        }
-        else{
+        } else {
             node.nullable = true;
             node.firstpos.add(null);
             node.lastpos.add(null);
         }
-
     }
-
     @Override
-    public void visit (BinOpNode node) {
-
-        SyntaxNode left,right;
+    public void visit(BinOpNode node) {
+        SyntaxNode left, right;
         left = (SyntaxNode) node.left;
         right = (SyntaxNode) node.right;
-
-        if(node.operator.equals("°")){
-
-
+        if (node.operator.equals("°")) {
             node.nullable = left.nullable && right.nullable;
-
-            if(left.nullable){
+            if (left.nullable) {
                 node.firstpos.addAll(left.firstpos);
                 node.firstpos.addAll(right.firstpos);
-            }
-            else {
+            } else {
                 node.firstpos.addAll(left.firstpos);
             }
-
-            if(right.nullable){
+            if (right.nullable) {
                 node.lastpos.addAll(left.lastpos);
             }
             node.lastpos.addAll(right.lastpos);
-
         }
-
-        if(node.operator.equals("|")){
-
-
+        if (node.operator.equals("|")) {
             node.nullable = left.nullable || right.nullable;
-
             node.firstpos.addAll(left.firstpos);
             node.firstpos.addAll(right.firstpos);
-
             node.lastpos.addAll(left.lastpos);
             node.lastpos.addAll(right.lastpos);
-
         }
     }
 
     @Override
-    public void visit (UnaryOpNode node) {
-
+    public void visit(UnaryOpNode node) {
         SyntaxNode sub = (SyntaxNode) node.subNode;
-
-        if(node.operator.equals("*")){
+        if (node.operator.equals("*")) {
             node.nullable = true;
             node.firstpos.addAll(sub.firstpos);
             node.lastpos.addAll(sub.lastpos);
         }
-        if(node.operator.equals("+")){
+        if (node.operator.equals("+")) {
             node.nullable = sub.nullable;
             node.firstpos.addAll(sub.firstpos);
             node.lastpos.addAll(sub.lastpos);
         }
-        if(node.operator.equals("?")){
+        if (node.operator.equals("?")) {
             node.nullable = true;
             node.firstpos.addAll(sub.firstpos);
             node.lastpos.addAll(sub.lastpos);
