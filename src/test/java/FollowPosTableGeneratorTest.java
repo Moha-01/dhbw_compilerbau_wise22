@@ -134,7 +134,7 @@ public class FollowPosTableGeneratorTest {
         followPosGen = new FollowPosTableGenerator();
 
 
-        Assertions.assertEquals(dummyMap, followPosGen.generate(inputSyntaxTree););
+        Assertions.assertEquals(dummyMap, followPosGen.generate(inputSyntaxTree))   ;
     }
 
 }
