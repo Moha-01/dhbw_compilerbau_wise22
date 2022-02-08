@@ -17,6 +17,11 @@ public class FollowPosTableGenerator implements Visitor{
 
   public SortedMap<Integer, FollowPosTableEntry> followPosTableEntries = new TreeMap<>();
 
+  public SortedMap<Integer, FollowPosTableEntry> generate(Visitable root) {
+    DepthFirstIterator.traverse(root, this);
+    return followPosTableEntries;
+  }
+
   /**
    * Neue Zeile in Tabelle anlegen
    * new FollowPosTableEntry mit Position, Symbol und leeres HashSet<Integer>
