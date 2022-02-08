@@ -8,7 +8,7 @@ public class SyntaxTreeEvaluatorTest {
     @Test
     public void testSyntaxTreeFromLecture() {
         // input: ((a|b)*abb)#
-        //expectedTree
+        //actualTree
         OperandNode node1 = new OperandNode("a");
         OperandNode node2 = new OperandNode("b");
         BinOpNode altNode = new BinOpNode("|", node1, node2);
@@ -83,7 +83,7 @@ public class SyntaxTreeEvaluatorTest {
     @Test
     public void testSyntaxTreeWithConcatenation() {
         //input: (abc)#
-        //expectedTree
+        //actualTree
         OperandNode node1 = new OperandNode("a");
         OperandNode node2 = new OperandNode("b");
         BinOpNode concatNode1 = new BinOpNode("°", node1, node2);
@@ -131,7 +131,7 @@ public class SyntaxTreeEvaluatorTest {
     @Test
     public void testSyntaxTreeWithAlternative() {
         //input: (ab|c)#
-        //expectedTree
+        //actualTree
         OperandNode node1 = new OperandNode("a");
         OperandNode node2 = new OperandNode("b");
         BinOpNode concatNode1 = new BinOpNode("°", node1, node2);
@@ -179,7 +179,7 @@ public class SyntaxTreeEvaluatorTest {
     @Test
     public void testSyntaxTreeWithKleenHull() {
         //input: ((ab)*c)#
-        //expectedTree
+        //actualTree
         OperandNode node1 = new OperandNode("a");
         OperandNode node2 = new OperandNode("b");
         BinOpNode concatNode1 = new BinOpNode("°", node1, node2);
@@ -232,7 +232,7 @@ public class SyntaxTreeEvaluatorTest {
     @Test
     public void testSyntaxTreeWithPositiveHull() {
         //input: (ab+c)#
-        //expectedTree
+        //actualTree
         OperandNode node1 = new OperandNode("a");
         OperandNode node2 = new OperandNode("b");
         BinOpNode concatNode1 = new BinOpNode("°", node1, node2);
@@ -285,7 +285,7 @@ public class SyntaxTreeEvaluatorTest {
     @Test
     public void testSyntaxTreeWithOption() {
         //input: (ab?c)#
-        //expectedTree
+        //actualTree
         OperandNode node1 = new OperandNode("a");
         OperandNode node2 = new OperandNode("b");
         BinOpNode concatNode1 = new BinOpNode("°", node1, node2);
