@@ -11,10 +11,10 @@ public class FollowPosTableGeneratorTest {
     private FollowPosTableGenerator followPosGen;
 
     @Test
-    public void testSyntaxTreeFromLecture(){
+    public void createFollowPosTable(){
         // input: ((a|b)*abb)#
         //actualTree
-        OperandNode node1 = new OperandNode("a");
+            OperandNode node1 = new OperandNode("a");
 
         OperandNode node2 = new OperandNode("b");
 
@@ -101,6 +101,8 @@ public class FollowPosTableGeneratorTest {
         node6.lastpos.add(6);
         node6.nullable = false;
 
+        inputSyntaxTree = new BinOpNode("°", concatNode3, node6);
+
         BinOpNode expectedSyntaxTree = new BinOpNode("°", concatNode3, node6);
         expectedSyntaxTree.firstpos.addAll(Arrays.asList(1, 2, 3));
         expectedSyntaxTree.lastpos.add(6);
@@ -132,9 +134,9 @@ public class FollowPosTableGeneratorTest {
         }
 
         followPosGen = new FollowPosTableGenerator();
+        followPosGen.generate(inputSyntaxTree);
 
-
-        Assertions.assertEquals(dummyMap, followPosGen.generate(inputSyntaxTree))   ;
+        Assertions.assertEquals(dummyMap, followPosGen.followPosTableEntries);
     }
 
 }
