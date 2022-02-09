@@ -1,3 +1,6 @@
+/*Author:    Dominic Merkle
+        Created:   DD.MM.YYYY
+        Edited From:  */
 public class SyntaxTreeEvaluator implements Visitor {
     private int counter;
     public SyntaxTreeEvaluator() {
@@ -6,7 +9,7 @@ public class SyntaxTreeEvaluator implements Visitor {
     public void start(Visitable root) {
         DepthFirstIterator.traverse(root, this);
     }
-
+// Declare OperandNode
     @Override
     public void visit(OperandNode node) {
         node.position = counter++;
@@ -20,6 +23,7 @@ public class SyntaxTreeEvaluator implements Visitor {
             node.lastpos.add(null);
         }
     }
+    // Declare BinOpNode
     @Override
     public void visit(BinOpNode node) {
         SyntaxNode left, right;
@@ -46,7 +50,7 @@ public class SyntaxTreeEvaluator implements Visitor {
             node.lastpos.addAll(right.lastpos);
         }
     }
-
+    // Declare UnaryOpNode
     @Override
     public void visit(UnaryOpNode node) {
         SyntaxNode sub = (SyntaxNode) node.subNode;
