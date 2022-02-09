@@ -1,15 +1,21 @@
+/*
+    Author:
+    Created:
+    Edited From:
+
+ */
+
+
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.List;
+import java.util.*;
 
-public class TestParser {
+public class  ParserTest{
     /** J-Unit tests for the Parser*/
-    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    public class ParserTest {
         @Test
         public void testEmptyRegEx() {
             Parser testParser = new Parser("#");
@@ -19,7 +25,7 @@ public class TestParser {
 
             Assertions.assertTrue(Compare.equals(extendTree, currentTree));
         }
-            /**Test von Klammern*/
+        /**Test von Klammern*/
         @Test
         public void testRegExpWithBrackets() {
             Parser testParser = new Parser("(b(1)G)#");
@@ -188,5 +194,5 @@ public class TestParser {
                     "(Ab3l)1#"
             );
         }
-    }
+
 }

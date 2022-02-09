@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DFACreatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-02-09T08:36:51" hostname="CLEVO-MHA" time="0.029">
-  <properties/>
-  <testcase name="testDFACreator_Selbst()" classname="DFACreatorTest" time="0.021"/>
-  <testcase name="testDFACreator_Skript()" classname="DFACreatorTest" time="0.003"/>
-  <testcase name="testDFACreator_Skript_2()" classname="DFACreatorTest" time="0.003"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

@@ -1,3 +1,11 @@
+/*
+    Author:
+    Created:
+    Edited From:
+
+ */
+
+
 
 public class Compare {
     public static boolean equals (Visitable v1, Visitable v2) {
