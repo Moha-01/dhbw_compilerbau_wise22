@@ -96,7 +96,7 @@ public class  ParserTest{
 
             Assertions.assertTrue(Compare.equals(extendTree, currentTree));
         }
-
+    /**Test der Positiven Hülle*/
         @Test
         public void testRegExpWithPositiveHull() {
             Parser testParser = new Parser("(IN+F19+B)#");
@@ -116,7 +116,7 @@ public class  ParserTest{
             Assertions.assertTrue(Compare.equals(extendTree, currentTree));
         }
 
-
+    /**Test der Optionen*/
         @Test
         public void testRegExpWithOption() {
             Parser testParser = new Parser("(OTT?O)#");
@@ -133,7 +133,7 @@ public class  ParserTest{
 
             Assertions.assertTrue(Compare.equals(extendTree, currentTree));
         }
-
+    /**Test der Verbindung, aller Operatoren zusammen*/
         @Test
         public void testRegExpWithAllOperators() {
             Parser testParser = new Parser("((T|D)e+s(d?)t1*02)#");
@@ -155,18 +155,21 @@ public class  ParserTest{
             Assertions.assertTrue(Compare.equals(extendTree, currentTree));
         }
 
+    /**Test der Eingabe, ob RegExp oder nicht*/
         @Test
         public void testInvalidExpressionWithInputAfterHash() {
             Parser testParser = new Parser("(soivo)#oi?");
             Assertions.assertThrows(RuntimeException.class, () -> testParser.start(null));
         }
 
+    /**Test, wenn kein RegExp*/
         @Test
         public void testNullInputIsInvalid() {
             Parser testParser = new Parser(null);
             Assertions.assertThrows(RuntimeException.class, () -> testParser.start(null));
         }
 
+    /**Test der Eingabeparameter*/
         @ParameterizedTest(name = "#{index} - Test SyntaxError with \"{0}\"")
         @MethodSource("inputProvider")
         public void testInvalidExpressionWithSyntaxErrors(String input) {
