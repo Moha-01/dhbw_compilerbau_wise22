@@ -10,16 +10,16 @@
 public class Compare {
     public static boolean equals (Visitable v1, Visitable v2) {
         if (v1 == v2)
-            return true;
+            return true; /**Checking if Visitable 1 and 2 are equal to each other*/
 
         if (v1 == null)
-            return false;
+            return false;/**Checking if Visitable 1 are equal to null*/
 
         if (v2 == null)
-            return false;
+            return false;/**Checking if Visitable 2 are equal to null*/
 
         if (v1.getClass() != v2.getClass())
-            return false;
+            return false; /**Checking if Visitable 1 and 2 are not equal to each other*/
 
         if (v1.getClass() == OperandNode.class) {
             OperandNode op1 = (OperandNode) v1;
