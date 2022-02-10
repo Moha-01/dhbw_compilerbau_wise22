@@ -9,9 +9,9 @@ public class Parser {
     private int position;
     private final String eingabe;
 
-        public Parser(String eingabe) {
-            this.eingabe = eingabe;
-            this.position = 0;
+    public Parser(String eingabe) {
+        this.eingabe = eingabe;
+        this.position = 0;
 
     }
     public Visitable start (Visitable parameter) {
@@ -23,10 +23,10 @@ public class Parser {
             assertEndOfInput();/*in the same method */ /** check if reach the end, when not then throw exception */
 
             //return = new BinOpNode('°', RegExp.return, leaf)
-            return new BinOpNode("°", leaf, new OperandNode("#"));
+            return new BinOpNode("°", leaf, new OperandNode("#")); /**leaf = new OperandNode '#'*/
         }
         else if (eingabe.charAt(position) == '#'){
-            return new OperandNode("#");
+            return new OperandNode("#"); /** Start.return = root*/
         }
         else {
             throw new RuntimeException("Syntax error !");
@@ -35,26 +35,25 @@ public class Parser {
     /**one method per nonterminal
      nonterminal Start
 
-    i) only that method publicy
-    ii) only checking in the same method*/
+     i) only that method publicy
+     ii) only checking in the same method*/
 
     private Visitable regexp (Visitable parameter) {
         if (Character.isLetterOrDigit(eingabe.charAt(position)) || eingabe.charAt(position) == '(') {
-            //term.parameter = null
-            return regexpEnd(term(null));
+            return regexpEnd(term(null)); /**Term.parameter = null*/
         }
         else {
-            throw new RuntimeException("Syntax error !");
+            throw new RuntimeException("Syntax error !");/**error if Term not null*/
         }
     }
     private Visitable regexpEnd(Visitable parameter) {
         if (eingabe.charAt(position) == '|') {
             match('|');
-            Visitable extendTree = new BinOpNode("|", parameter, term(null));
-            return regexpEnd(extendTree);
+            Visitable extendTree = new BinOpNode("|", parameter, term(null)); /**root = new BinOpNode ('|', RE'.parameter, Term.return)*/
+            return regexpEnd(extendTree);/**RE'.parameter = root*/
         }
         else if (eingabe.charAt(position) == ')') {
-            return parameter;
+            return parameter;/**RE'.return = RE'.return*/
         }
         else {
             throw new RuntimeException("Syntax error !");
@@ -75,14 +74,14 @@ public class Parser {
 
     private Visitable term (Visitable parameter) {
         if (Character.isLetterOrDigit(eingabe.charAt(position)) || eingabe.charAt(position) == '(')  {
-            if (parameter != null) {
-                return term(new BinOpNode("°", parameter, factor(null)));
+            if (parameter != null) { /**Term.parameter != null*/
+                return term(new BinOpNode("°", parameter, factor(null))); /**root = BinOpNode('°', Term.parameter, Factor.return)*/
             }
 
-            return term(factor(null));
+            return term(factor(null));/**Term.parameter = root*/
         }
         else if (eingabe.charAt(position) == '|' || eingabe.charAt(position) == ')') {
-            return parameter;
+            return parameter; /**Term_1.parameter = Factor.return; Term.return = Term_1.return*/
         }
         else {
             throw new RuntimeException("Syntax error !");
@@ -90,7 +89,7 @@ public class Parser {
     }
     private Visitable factor (Visitable parameter) {
         if (Character.isLetterOrDigit(eingabe.charAt(position)) || eingabe.charAt(position) == '(') {
-            return HOp (elem(null));
+            return HOp (elem(null)); /**Factor.return = HOp.return*/
         }
         else {
             throw new RuntimeException("Syntax error !");
@@ -102,15 +101,15 @@ public class Parser {
         }
         else if (eingabe.charAt(position) == '*') {
             match('*');
-            return new UnaryOpNode("*", parameter);
+            return new UnaryOpNode("*", parameter); /**HOp.return = new UnaryOpNode('*', HOp.parameter);*/
         }
         else if (eingabe.charAt(position) == '+') {
             match('+');
-            return new UnaryOpNode("+", parameter);
+            return new UnaryOpNode("+", parameter); /**HOp.return = new UnaryOpNode('+', HOp.parameter);*/
         }
         else if (eingabe.charAt(position) == '?') {
             match('?');
-            return new UnaryOpNode("?", parameter);
+            return new UnaryOpNode("?", parameter); /**HOp.return = new UnaryOpNode('?', HOp.parameter);*/
         }
         else {
             throw new RuntimeException("Syntax error!");
@@ -118,11 +117,15 @@ public class Parser {
     }
     private Visitable elem (Visitable parameter) {
         if (Character.isLetterOrDigit(eingabe.charAt(position))) {
-            return alphanum(null);
+            return alphanum(null); /**Alphanum.parameter = null
+             *  Elem.return = Alphanum.return
+             * */
         }
         else if (eingabe.charAt(position) == '(') {
             match('(');
-            Visitable leaf = regexp(null);
+            Visitable leaf = regexp(null);/**RegExp.parameter = null
+             *  Elem.return = RegExp.return
+             * */
             match(')');
             return leaf;
         }
@@ -140,7 +143,7 @@ public class Parser {
             throw new RuntimeException("An alphanumeric symbol is a letter or a digit");
         }
 
-        OperandNode symbolNode = new OperandNode(String.valueOf(eingabe.charAt(position)));
+        OperandNode symbolNode = new OperandNode(String.valueOf(eingabe.charAt(position))); /**Alphanum.return = new OperandNode('A');*/
         match(eingabe.charAt(position));
 
         return symbolNode;
@@ -178,5 +181,3 @@ public class Parser {
         }
     }
 }
-
-
