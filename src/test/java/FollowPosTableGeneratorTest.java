@@ -42,7 +42,7 @@ public class FollowPosTableGeneratorTest {
         BinOpNode inputSyntaxTree = new BinOpNode("°", concatNode3, node6);
 
 
-        //expectedTree
+        //initialize the syntax tree needed for testing the creation of the followpos table
         node1 = new OperandNode("a");
         node1.position = 1;
         node1.firstpos.add(1);
@@ -111,7 +111,7 @@ public class FollowPosTableGeneratorTest {
         expectedSyntaxTree.lastpos.add(6);
         expectedSyntaxTree.nullable = false;
 
-        //create dummy followPosTable
+        //creating the expected followPosTable which is later compared with the list created by the FolloPosTableGenerator
         FollowPosTableEntry index1 = new FollowPosTableEntry(1, "a");
         index1.followpos.addAll(Arrays.asList(1,2,3));
 
@@ -139,6 +139,7 @@ public class FollowPosTableGeneratorTest {
         followPosGen = new FollowPosTableGenerator();
         followPosGen.generate(inputSyntaxTree);
 
+        //Testing if both followpostables are euqal
         Assertions.assertEquals(dummyMap, followPosGen.followPosTableEntries);
     }
 

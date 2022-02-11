@@ -17,34 +17,39 @@ public class FollowPosTableGenerator implements Visitor{
 
   public SortedMap<Integer, FollowPosTableEntry> followPosTableEntries = new TreeMap<>();
 
-  public SortedMap<Integer, FollowPosTableEntry> generate(Visitable root) {
+  /**
+   * This method start the process which generates the followPos Table
+   * @param root root of the syntax tree
+   * @return generated followPosTable
+   */
+  public SortedMap<Integer, FollowPosTableEntry> generate(Visitable root){
     DepthFirstIterator.traverse(root, this);
     return followPosTableEntries;
   }
 
   /**
-   * Neue Zeile in Tabelle anlegen
-   * new FollowPosTableEntry mit Position, Symbol und leeres HashSet<Integer>
-   * @param node Blattknoten
+   * Create new row inside the table
+   * new FollowPosTableEntry with position, symbol and an empty HashSet<Integer>
+   * @param node node
    */
-  public void visit(OperandNode node){    //Blattknoten
-    followPosTableEntries.put(node.position, new FollowPosTableEntry(node.position, node.symbol));    //Eintrag in Tabelle
+  public void visit(OperandNode node){    //leaf node
+    followPosTableEntries.put(node.position, new FollowPosTableEntry(node.position, node.symbol));    //add entry in table
   }
 
-  public void visit(BinOpNode node){      //innerer Knoten
-    if(node.operator == konkatenation){   //checken ob es sich beim operator um eine Konkatenation handelt
+  public void visit(BinOpNode node){      //inner node
+    if(node.operator == konkatenation){   // check if operator is a concatenation
       SyntaxNode left = (SyntaxNode) node.left;
       SyntaxNode right = (SyntaxNode) node.right;
-      for(int i : left.lastpos){          //iterieren über jede Position i von der lastpos Menge der linken SyntaxNode
-        followPosTableEntries.get(i).followpos.addAll(right.firstpos);    //followpos(Position i) = followpos(Position i) ODER firstpos(rechter Sohnknoten) für alle i
+      for(int i : left.lastpos){          //iterating over each position i being part the last pos set of the left syntaxnode
+        followPosTableEntries.get(i).followpos.addAll(right.firstpos);    //followpos(Position i) = followpos(Position i) OR firstpos(rechter Sohnknoten) for every i
       }
     }
     else{
-      //keine Konkatenation
+      //no concatenation
     }
   }
 
-  public void visit(UnaryOpNode node){    //KleenscheHuelle und PositiveHuelle
+  public void visit(UnaryOpNode node){    //kleensche shell and positive shell
     if(node.operator == kleenscheHuelle || node.operator == postitiveHuelle){
       for(int i : node.lastpos){
         followPosTableEntries.get(i).followpos.addAll(node.firstpos);
