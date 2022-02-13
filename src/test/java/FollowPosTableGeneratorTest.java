@@ -1,19 +1,21 @@
 /*Author:    Lukas Hautzinger
         Created:   09.02.2022
         Edited From:  */
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class FollowPosTableGeneratorTest {
 
     private FollowPosTableGenerator followPosGen;
 
     @Test
+    @Order(1)
+    @DisplayName("Creation of the adequate followPosTable")
     public void createFollowPosTable(){
         // input: ((a|b)*abb)#
         //actualTree
