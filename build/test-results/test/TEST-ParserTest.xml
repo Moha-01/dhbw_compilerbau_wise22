@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ParserTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2022-02-13T18:55:01" hostname="CLEVO-MHA" time="0.088">
+  <properties/>
+  <testcase name="testRegExpWithConcatenation()" classname="ParserTest" time="0.019"/>
+  <testcase name="testRegExpWithOption()" classname="ParserTest" time="0.001"/>
+  <testcase name="testEmptyRegEx()" classname="ParserTest" time="0.0"/>
+  <testcase name="testRegExpWithKleenHull()" classname="ParserTest" time="0.001"/>
+  <testcase name="#1 - Test SyntaxError with &quot;&quot;" classname="ParserTest" time="0.018"/>
+  <testcase name="#2 - Test SyntaxError with &quot;(%def)#&quot;" classname="ParserTest" time="0.001"/>
+  <testcase name="#3 - Test SyntaxError with &quot;(in(f)%)#&quot;" classname="ParserTest" time="0.0"/>
+  <testcase name="#4 - Test SyntaxError with &quot;(te~st)#&quot;" classname="ParserTest" time="0.0"/>
+  <testcase name="#5 - Test SyntaxError with &quot;(a|[bc])#&quot;" classname="ParserTest" time="0.001"/>
+  <testcase name="#6 - Test SyntaxError with &quot;(no*}42)#&quot;" classname="ParserTest" time="0.0"/>
+  <testcase name="#7 - Test SyntaxError with &quot;(69+=BieG)#&quot;" classname="ParserTest" time="0.0"/>
+  <testcase name="#8 - Test SyntaxError with &quot;(71'?01)#&quot;" classname="ParserTest" time="0.0"/>
+  <testcase name="#9 - Test SyntaxError with &quot;(5EB`)#&quot;" classname="ParserTest" time="0.0"/>
+  <testcase name="#10 - Test SyntaxError with &quot;(!)#&quot;" classname="ParserTest" time="0.001"/>
+  <testcase name="#11 - Test SyntaxError with &quot;(adf)&quot;" classname="ParserTest" time="0.001"/>
+  <testcase name="#12 - Test SyntaxError with &quot;(bc#&quot;" classname="ParserTest" time="0.0"/>
+  <testcase name="#13 - Test SyntaxError with &quot;zu)#&quot;" classname="ParserTest" time="0.0"/>
+  <testcase name="#14 - Test SyntaxError with &quot;(D34+8(doi*?)#&quot;" classname="ParserTest" time="0.001"/>
+  <testcase name="#15 - Test SyntaxError with &quot;(Ab3l)1#&quot;" classname="ParserTest" time="0.001"/>
+  <testcase name="testRegExpWithBrackets()" classname="ParserTest" time="0.0"/>
+  <testcase name="testRegExpWithPositiveHull()" classname="ParserTest" time="0.001"/>
+  <testcase name="testNullInputIsInvalid()" classname="ParserTest" time="0.0"/>
+  <testcase name="testRegExpWithAlternative()" classname="ParserTest" time="0.0"/>
+  <testcase name="testInvalidExpressionWithInputAfterHash()" classname="ParserTest" time="0.001"/>
+  <testcase name="testRegExpWithAllOperators()" classname="ParserTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -5,7 +5,6 @@
 
  */
 
-import java.util.Objects;
 import java.util.Set;
 
 class DFAState {
@@ -23,9 +22,15 @@ class DFAState {
     @Override
     public boolean equals(Object obj)
     {
-        if(this == obj) return true;
-        if(obj == null) return false;
-        if(getClass() != obj.getClass()) return false;
+        if(this == obj){
+            return true;
+        }
+        if(obj == null){
+            return false;
+        }
+        if(getClass() != obj.getClass()) {
+            return false;
+        }
         DFAState other = (DFAState)obj;
         return equals(this.positionsSet, other.positionsSet);
     }

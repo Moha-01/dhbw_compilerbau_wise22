@@ -5,41 +5,43 @@
 
  */
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.*;
 
+import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
+
+
+@TestInstance(PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DFACreatorTest {
 
-    /**
-     * Beispiel aus Kapitel 8 der Aufgabenstellung
-     */
     @Test
-    public void testDFACreator_Skript()
+    @Order(1)
+    public void InputTest()
     {
-        // create firstpos
+        // Erstelle StartPosition
         Set<Integer> positionsOfStartState = new HashSet<>(Arrays.asList(1,2,3));
 
-        // create FollowposTable
-        FollowPosTableEntry row1 = new FollowPosTableEntry(1, "a");
-        row1.followpos.addAll(Arrays.asList(1, 2, 3));
+        // Erstelle Tabelle
+        FollowPosTableEntry row_1 = new FollowPosTableEntry(1, "a");
+        row_1.followpos.addAll(Arrays.asList(1, 2, 3));
 
-        FollowPosTableEntry row2 = new FollowPosTableEntry(2, "b");
-        row2.followpos.addAll(Arrays.asList(1, 2, 3));
+        FollowPosTableEntry row_2 = new FollowPosTableEntry(2, "b");
+        row_2.followpos.addAll(Arrays.asList(1, 2, 3));
 
-        FollowPosTableEntry row3 = new FollowPosTableEntry(3, "a");
-        row3.followpos.add(4);
+        FollowPosTableEntry row_3 = new FollowPosTableEntry(3, "a");
+        row_3.followpos.add(4);
 
-        FollowPosTableEntry row4 = new FollowPosTableEntry(4, "b");
-        row4.followpos.add(5);
+        FollowPosTableEntry row_4 = new FollowPosTableEntry(4, "b");
+        row_4.followpos.add(5);
 
-        FollowPosTableEntry row5 = new FollowPosTableEntry(5, "b");
-        row5.followpos.add(6);
+        FollowPosTableEntry row_5 = new FollowPosTableEntry(5, "b");
+        row_5.followpos.add(6);
 
-        FollowPosTableEntry row6 = new FollowPosTableEntry(6, "#");
+        FollowPosTableEntry row_6 = new FollowPosTableEntry(6, "#");
 
-        List<FollowPosTableEntry> list = Arrays.asList(row1, row2, row3, row4, row5, row6);
+        List<FollowPosTableEntry> list = Arrays.asList(row_1, row_2, row_3, row_4, row_5, row_6);
 
         SortedMap<Integer, FollowPosTableEntry> followposTableEntries = new TreeMap<>();
 
@@ -47,66 +49,64 @@ public class DFACreatorTest {
             followposTableEntries.put(i.position, i);
         }
 
-        // create expected stateTransitionTable
+        // Erstelle Erwartungstabelle
         Map<DFAState, Map<Character, DFAState>> stateTransitionTable = new HashMap<>();
 
-        DFAState s1 = new DFAState(1, false, new HashSet<>(Arrays.asList(1,2,3)));
-        DFAState s2 = new DFAState(2, false, new HashSet<>(Arrays.asList(1,2,3,4)));
-        DFAState s3 = new DFAState(3, false, new HashSet<>(Arrays.asList(1,2,3,5)));
-        DFAState s4 = new DFAState(4, true, new HashSet<>(Arrays.asList(1,2,3,6)));
+        DFAState state_1 = new DFAState(1, false, new HashSet<>(Arrays.asList(1,2,3)));
+        DFAState state_2 = new DFAState(2, false, new HashSet<>(Arrays.asList(1,2,3,4)));
+        DFAState state_3 = new DFAState(3, false, new HashSet<>(Arrays.asList(1,2,3,5)));
+        DFAState state_4 = new DFAState(4, true, new HashSet<>(Arrays.asList(1,2,3,6)));
 
         Map<Character, DFAState> innerEntries = new HashMap<>();
-        innerEntries.put('a', s2);
-        innerEntries.put('b', s1);
-        stateTransitionTable.put(s1, innerEntries);
+        innerEntries.put('a', state_2);
+        innerEntries.put('b', state_1);
+        stateTransitionTable.put(state_1, innerEntries);
 
         innerEntries = new HashMap<>();
-        innerEntries.put('a', s2);
-        innerEntries.put('b', s3);
-        stateTransitionTable.put(s2, innerEntries);
+        innerEntries.put('a', state_2);
+        innerEntries.put('b', state_3);
+        stateTransitionTable.put(state_2, innerEntries);
 
         innerEntries = new HashMap<>();
-        innerEntries.put('a', s2);
-        innerEntries.put('b', s4);
-        stateTransitionTable.put(s3, innerEntries);
+        innerEntries.put('a', state_2);
+        innerEntries.put('b', state_4);
+        stateTransitionTable.put(state_3, innerEntries);
 
         innerEntries = new HashMap<>();
-        innerEntries.put('a', s2);
-        innerEntries.put('b', s1);
-        stateTransitionTable.put(s4, innerEntries);
+        innerEntries.put('a', state_2);
+        innerEntries.put('b', state_1);
+        stateTransitionTable.put(state_4, innerEntries);
 
-        // run DFACreator and compare
+        // Starte DEA-Erzeuger und fange an zu vergleichen
         DFACreator creator = new DFACreator(positionsOfStartState, followposTableEntries);
         creator.populateStateTransitionTable();
         Assertions.assertEquals(stateTransitionTable, creator.getStateTransitionTable());
     }
 
 
-    /**
-     * Beispiel aus Protokoll MOS-TINF 19B 29_01_2021.pdf Seite 6
-     */
     @Test
-    public void testDFACreator_Skript_2()
+    @Order(2)
+    public void Progress()
     {
-        // create firstpos
+        // Erstelle erste Position
         Set<Integer> positionsOfStartState = new HashSet<>(Arrays.asList(1,2,3));
 
-        // create FollowposTable
-        FollowPosTableEntry row1 = new FollowPosTableEntry(1, "a");
-        row1.followpos.addAll(Arrays.asList(1, 2, 3));
+        // Erstelle Tabelle
+        FollowPosTableEntry row_1 = new FollowPosTableEntry(1, "a");
+        row_1.followpos.addAll(Arrays.asList(1, 2, 3));
 
-        FollowPosTableEntry row2 = new FollowPosTableEntry(2, "b");
-        row2.followpos.addAll(Arrays.asList(1, 2, 3));
+        FollowPosTableEntry row_2 = new FollowPosTableEntry(2, "b");
+        row_2.followpos.addAll(Arrays.asList(1, 2, 3));
 
-        FollowPosTableEntry row3 = new FollowPosTableEntry(3, "c");
-        row3.followpos.addAll(Arrays.asList(4,5));
+        FollowPosTableEntry row_3 = new FollowPosTableEntry(3, "c");
+        row_3.followpos.addAll(Arrays.asList(4,5));
 
-        FollowPosTableEntry row4 = new FollowPosTableEntry(4, "d");
-        row4.followpos.addAll(Arrays.asList(4,5));
+        FollowPosTableEntry row_4 = new FollowPosTableEntry(4, "d");
+        row_4.followpos.addAll(Arrays.asList(4,5));
 
-        FollowPosTableEntry row5 = new FollowPosTableEntry(6, "#");
+        FollowPosTableEntry row_5 = new FollowPosTableEntry(6, "#");
 
-        List<FollowPosTableEntry> list = Arrays.asList(row1, row2, row3, row4, row5);
+        List<FollowPosTableEntry> list = Arrays.asList(row_1, row_2, row_3, row_4, row_5);
 
         SortedMap<Integer, FollowPosTableEntry> followposTableEntries = new TreeMap<>();
 
@@ -117,22 +117,22 @@ public class DFACreatorTest {
         // create expected stateTransitionTable
         Map<DFAState, Map<Character, DFAState>> stateTransitionTable = new HashMap<>();
 
-        DFAState s1 = new DFAState(1, false, new HashSet<>(Arrays.asList(1,2,3)));
-        DFAState s2 = new DFAState(2, true, new HashSet<>(Arrays.asList(4,5)));
+        DFAState state_1 = new DFAState(1, false, new HashSet<>(Arrays.asList(1,2,3)));
+        DFAState state_2 = new DFAState(2, true, new HashSet<>(Arrays.asList(4,5)));
 
         Map<Character, DFAState> innerEntries = new HashMap<>();
-        innerEntries.put('a', s1);
-        innerEntries.put('b', s1);
-        innerEntries.put('c', s2);
+        innerEntries.put('a', state_1);
+        innerEntries.put('b', state_1);
+        innerEntries.put('c', state_2);
         innerEntries.put('d', null);
-        stateTransitionTable.put(s1, innerEntries);
+        stateTransitionTable.put(state_1, innerEntries);
 
         innerEntries = new HashMap<>();
         innerEntries.put('a', null);
         innerEntries.put('b', null);
         innerEntries.put('c', null);
-        innerEntries.put('d', s2);
-        stateTransitionTable.put(s2, innerEntries);
+        innerEntries.put('d', state_2);
+        stateTransitionTable.put(state_2, innerEntries);
 
         // run DFACreator and compare
         DFACreator creator = new DFACreator(positionsOfStartState, followposTableEntries);
@@ -145,30 +145,31 @@ public class DFACreatorTest {
      * Selbst gewaehltes Beispiel
      */
     @Test
-    public void testDFACreator_Selbst()
+    @Order(3)
+    public void FinalTest()
     {
         // create firstpos
         Set<Integer> positionsOfStartState = new HashSet<>(Arrays.asList(1,2,3));
 
         // create FollowposTable
-        FollowPosTableEntry row1 = new FollowPosTableEntry(1, "a");
-        row1.followpos.addAll(Arrays.asList(1, 2, 3));
+        FollowPosTableEntry row_1 = new FollowPosTableEntry(1, "a");
+        row_1.followpos.addAll(Arrays.asList(1, 2, 3));
 
-        FollowPosTableEntry row2 = new FollowPosTableEntry(2, "b");
-        row2.followpos.addAll(Arrays.asList(1, 2, 3));
+        FollowPosTableEntry row_2 = new FollowPosTableEntry(2, "b");
+        row_2.followpos.addAll(Arrays.asList(1, 2, 3));
 
-        FollowPosTableEntry row3 = new FollowPosTableEntry(3, "c");
-        row3.followpos.addAll(Arrays.asList(4));
+        FollowPosTableEntry row_3 = new FollowPosTableEntry(3, "c");
+        row_3.followpos.addAll(Arrays.asList(4));
 
-        FollowPosTableEntry row4 = new FollowPosTableEntry(4, "d");
-        row4.followpos.addAll(Arrays.asList(5,6));
+        FollowPosTableEntry row_4 = new FollowPosTableEntry(4, "d");
+        row_4.followpos.addAll(Arrays.asList(5,6));
 
-        FollowPosTableEntry row5 = new FollowPosTableEntry(5, "e");
-        row5.followpos.addAll(Arrays.asList(5,6));
+        FollowPosTableEntry row_5 = new FollowPosTableEntry(5, "e");
+        row_5.followpos.addAll(Arrays.asList(5,6));
 
-        FollowPosTableEntry row6 = new FollowPosTableEntry(6, "#");
+        FollowPosTableEntry row_6 = new FollowPosTableEntry(6, "#");
 
-        List<FollowPosTableEntry> list = Arrays.asList(row1, row2, row3, row4, row5, row6);
+        List<FollowPosTableEntry> list = Arrays.asList(row_1, row_2, row_3, row_4, row_5, row_6);
 
         SortedMap<Integer, FollowPosTableEntry> followposTableEntries = new TreeMap<>();
 
@@ -179,33 +180,33 @@ public class DFACreatorTest {
         // create expected stateTransitionTable
         Map<DFAState, Map<Character, DFAState>> stateTransitionTable = new HashMap<>();
 
-        DFAState s1 = new DFAState(1, false, new HashSet<>(Arrays.asList(1,2,3)));
-        DFAState s2 = new DFAState(2, false, new HashSet<>(Arrays.asList(4)));
-        DFAState s3 = new DFAState(3, true, new HashSet<>(Arrays.asList(5,6)));
+        DFAState state_1 = new DFAState(1, false, new HashSet<>(Arrays.asList(1,2,3)));
+        DFAState state_2 = new DFAState(2, false, new HashSet<>(Arrays.asList(4)));
+        DFAState state_3 = new DFAState(3, true, new HashSet<>(Arrays.asList(5,6)));
 
         Map<Character, DFAState> innerEntries = new HashMap<>();
-        innerEntries.put('a', s1);
-        innerEntries.put('b', s1);
-        innerEntries.put('c', s2);
+        innerEntries.put('a', state_1);
+        innerEntries.put('b', state_1);
+        innerEntries.put('c', state_2);
         innerEntries.put('d', null);
         innerEntries.put('e', null);
-        stateTransitionTable.put(s1, innerEntries);
+        stateTransitionTable.put(state_1, innerEntries);
 
         innerEntries = new HashMap<>();
         innerEntries.put('a', null);
         innerEntries.put('b', null);
         innerEntries.put('c', null);
-        innerEntries.put('d', s3);
+        innerEntries.put('d', state_3);
         innerEntries.put('e', null);
-        stateTransitionTable.put(s2, innerEntries);
+        stateTransitionTable.put(state_2, innerEntries);
 
         innerEntries = new HashMap<>();
         innerEntries.put('a', null);
         innerEntries.put('b', null);
         innerEntries.put('c', null);
         innerEntries.put('d', null);
-        innerEntries.put('e', s3);
-        stateTransitionTable.put(s3, innerEntries);
+        innerEntries.put('e', state_3);
+        stateTransitionTable.put(state_3, innerEntries);
 
         // run DFACreator and compare
         DFACreator creator = new DFACreator(positionsOfStartState, followposTableEntries);

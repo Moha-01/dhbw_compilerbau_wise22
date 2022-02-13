@@ -28,15 +28,16 @@ public class DFACreator {
      * mit der firstpos-Menge des Wurzelknotens des Syntaxbaums initialisiert werden !
      */
     public DFACreator (Set<Integer> positionsForStartState, SortedMap<Integer, FollowPosTableEntry> followposTable) {
+
         this.positionsForStartState = positionsForStartState;
         this.followposTable = followposTable;
         this.stateTransitionTable = new HashMap<>();
     }
 
-    // befuellt die Übergangsmatrix
+    // Übergangsmatrix ausfüllen
     public void populateStateTransitionTable () {
 
-        // Alphabet ermitteln
+        // ermittle das Alphabet
         Set<String> alphabet = new HashSet<>();
         for (FollowPosTableEntry entry: followposTable.values())
         {
@@ -46,7 +47,7 @@ public class DFACreator {
             }
         }
 
-        // eine Liste mit Startzustand initialisieren
+        // Erstelle eine Liste mit einem Startzustand
         List<DFAState> qStates = new ArrayList<>();
         int posOfTerminatingSymbol = followposTable.lastKey(); // Schluessel des letzten Eintrags
         DFAState startState = new DFAState(
@@ -56,26 +57,26 @@ public class DFACreator {
         );
         qStates.add(startState);
 
-        // Algorithmus durchlaufen
+        // Durchlauf des Algorithmus
         Map<Character, DFAState> innerCell;
         while (!qStates.isEmpty())
         {
-            // ersten Zustand aus qstates entnehmen und entfernen
+            // ersten Zustand aus qStates entnehmen und entfernen
             DFAState currentState = qStates.get(0);
             qStates.remove(0);
 
-            // neue Zeile in stateTransitionTable hinzufuegen mit currentState als Schluessel
+            // Erstelle neue Zeile mit einem Schlüssel
             innerCell = new HashMap<>();
             stateTransitionTable.put(currentState, innerCell);
 
             for (String symbol: alphabet)
             {
-                // Folgezustand ermitteln + einfügen in neue Zeile
+                // Folgezustand in eine new Zeile Speichern
                 DFAState followState = calculateFollowState(currentState, symbol);
                 innerCell.put(symbol.charAt(0), followState);
 
-                // Ueberpruefen, ob Folgezustand schon erfasst bzw. verarbeitet wurde
-                // Falls nicht, am Ende von qStates hinzufuegen
+                // Überprüfen, ob Folgezustand schon erfasst bzw. verarbeitet wurde
+                // Falls nicht, am Ende von qStates hinzufügen
                 if(followState!=null
                         && !stateTransitionTable.containsKey(followState)
                         && !qStates.contains(followState))
@@ -103,7 +104,8 @@ public class DFACreator {
             return null;
         }
 
-        boolean isAcceptingState = nextPositionsSet.contains(followposTable.lastKey());  //Akzeptierter Zustand, wenn nextPositionsSet die Position von # enthält
+        //Zustand Akzeptieren, wenn nextPositionsSet die Position von # enthält
+        boolean isAcceptingState = nextPositionsSet.contains(followposTable.lastKey());
 
         return new DFAState(counter++, isAcceptingState, nextPositionsSet);
     }
